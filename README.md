@@ -6,9 +6,9 @@
 
 ​		在Java实训时候使用到数据库，因为涉及多个表需要写多条SQL语句。因此编写了该工具类。
 
-​		实现原理：使用反射获取类名作为表名，将查询出来的数据(结果集)转换成实体类List
+​		实现原理：使用反射获取类名作为表名，将查询出来的数据(结果集)转换成实体类List。使用HashMap传递where条件。
 
-​		只合适的简单的数据库操作！
+​		只合适的简单的数据库操作！！！
 
 ### 优势
 
@@ -19,7 +19,7 @@
 #### 1.首先编写实体类
 
 - 实体类名与数据库表名一致
-- 实体类成员变量与数据库表字段类型一致
+- 实体类成员变量与数据库表字段名和类型一致
 - 实体类需`Get`和`Set`方法
 
 例如：
@@ -99,9 +99,10 @@ public class DBmysqlTest {
 
     @Test
     public void testSelect() {
-        //条件查询
+        //条件查询，目前只能AND
         Map map = new HashMap();
-        map.put("username = ","root");
+        map.put("username = ","root"); //条件一
+        //map.put("id =",1);             //条件二
         List<User> list = dBmysql.select(User.class,map);
         list.forEach(obj->System.out.println(obj.toString()));
     }
@@ -127,7 +128,7 @@ public class DBmysqlTest {
         //2.修改数据
         user.setPassword("123");
         //3.更新数据
-        int upDateCount = dBmysql.update(User.class,user,"username");
+        int upDateCount = dBmysql.update(User.class,user,"username"); //username为使用表字段username作为条件
         System.out.println("更新"+upDateCount+"行");
     }
 
