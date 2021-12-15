@@ -6,7 +6,9 @@
 
 ​		在Java实训时候使用到数据库，因为涉及多个表需要写多条SQL语句。因此编写了该工具类。
 
-### 优势，
+​		只合适的简单的数据库操作！
+
+### 优势
 
 - 只需要提供实体类即可对应表进行查询、插入、更新、删除操作，无需编写SQL语句
 
@@ -20,7 +22,7 @@
 
 例如：
 
-![](E:\github_project\microDbUtil\img\img1.jpg)
+![](.\img\img1.jpg)
 
 ```java
 public class User {
