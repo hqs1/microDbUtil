@@ -24,7 +24,7 @@
 
 例如：
 
-![](.\img\img1.jpg)
+![表结构](./img/img1.jpg)
 
 ```java
 public class User {
